@@ -1,0 +1,588 @@
+
+@import "tailwindcss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+body {
+  height: 100vh;
+  width: 100vw-;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.greet {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(15, 14, 14, 0.436);
+  text-align: center;
+  background: repeating-radial-gradient(
+    circle at 50%,
+    rgba(255, 255, 255, 0.633),
+    rgba(255, 248, 248, 0.542) 35%,
+    rgba(0, 0, 0, 0.84) 35%
+  );
+  p {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .analysis {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgba(0, 0, 0, 0.548);
+  }
+
+  .loading {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+.flag {
+  height: 430px;
+  width: 230px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    height: 90%;
+    width: 90%;
+    /* border: 1px slateblue solid; */
+    border-radius: 20%;
+    position: absolute;
+    left: 70px;
+  }
+}
+/* category css */
+.category {
+  height: 40px;
+  width: 200px;
+  /* border: 1px solid black; */
+  position: relative;
+  @media (max-width: 400px) {
+    width: 100px;
+  }
+
+  .inputContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.333);
+
+    input {
+      height: 100%;
+      width: 100%;
+      font-size: medium;
+      padding-left: 10px;
+      outline: none;
+      border: none;
+      background: none;
+      /* background-color: rgba(128, 128, 128, 0.389); */
+      cursor: pointer;
+      @media (max-width: 400px) {
+        font-size: 10px;
+        padding-left: 3px;
+      }
+    }
+  }
+  .cat {
+    position: absolute;
+    height: 220px;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 400px) {
+      height: 150px;
+    }
+
+    p {
+      padding: 10px;
+      background: #3498dba1;
+      @media (max-width: 400px) {
+        font-size: 10px;
+        padding: 3px;
+      }
+      &:hover {
+        background-color: #3498db;
+      }
+    }
+  }
+}
+
+/* navbar css */
+.navContainer {
+  height: 70px;
+  width: 100vw;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  @media (max-width: 600px) {
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .navBar {
+    /* position: fixed; */
+    height: 100%;
+    width: 100%;
+    padding: 20px 0px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid gray; */
+    @media (max-width: 600px) {
+      padding: 10px 0px 10px 10px;
+    }
+    .logo {
+      h1 {
+        color: gray;
+      }
+      .tagline {
+        font-size: small;
+      }
+    }
+
+    .menu {
+      height: 70px;
+      width: fit-content;
+      /* border: 1px solid red; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 10px 0px 30px;
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+      background-color: rgba(128, 128, 128, 0.519);
+      padding-right: 20px;
+      @media (max-width: 600px) {
+        height: 50px;
+        padding: 0px 10px 0px 10px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+      }
+
+      p {
+        padding: 10px;
+        color: black;
+        /* border: 1px solid rgba(0, 0, 0, 0.254); */
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: #3498db97;
+        @media (max-width: 600px) {
+          margin-left: 5px;
+          padding: 5px 7px;
+          font-size: 14px;
+        }
+        &:hover {
+          background-color: #3498db;
+        }
+      }
+    }
+  }
+}
+
+/* all task css */
+.allTask {
+  position: relative;
+  padding-top: 70px;
+  width: 100vw-;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  .taskHead {
+    padding: 20px;
+    width: fit-content;
+    background: linear-gradient(#3498db, #3498db90, #3498db96);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    @media (max-width: 600px) {
+      padding: 10px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      color: red;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: bolder;
+      color: rgba(0, 0, 0, 0.531);
+      padding: 0px 80px 0px 0px;
+      @media (max-width: 600px) {
+        padding: 0px 50px 0px 0px;
+        font-size: 14px;
+        color: red;
+      }
+    }
+    button {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      background: none;
+      font-size: 20px;
+      outline: none;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.248);
+      @media (max-width: 600px) {
+        height: 20px;
+        width: 20px;
+        font-size: 14px;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.49);
+      }
+    }
+  }
+  .taskStore {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+
+    .taskContainer {
+      height: 70px;
+      width: 80%;
+      display: flex;
+
+      p {
+        height: 100%;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          background-color: rgba(94, 91, 91, 0.152);
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+      }
+      .active {
+        background-color: rgba(94, 91, 91, 0.353);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+    .taskShow {
+      border: 1px solid rgba(94, 91, 91, 0.353);
+      height: 80%;
+      width: 80%;
+    }
+  }
+}
+
+.createTaskContainer {
+  padding-top: 70px;
+  height: 100vh;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .createTask {
+    height: 200px;
+    width: 300px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+  }
+
+  .fillTask {
+    /* height:130px; */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .taskName {
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.31);
+        background: none;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        padding-left: 10px;
+      }
+    }
+    .taskCategory {
+      display: flex;
+      gap: 15px;
+    }
+  }
+  .actionBtn {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    button {
+      padding: 5px 20px;
+    }
+  }
+}
+
+/* display css  analysis*/ 
+.taskDisplay1 {
+  /* box-sizing: border-box; */
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 0px 20px; */
+  overflow-y: auto;
+  gap: 20px;
+  /* color: red; */
+
+  .notFound1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px;
+    color:red;
+    
+  }
+}
+
+.taskStructure {
+  box-sizing: border-box;
+  height: 150px;
+  width: 200px;
+  /* border: 1px solid black; */
+  padding: 10px;
+  display: flex;
+  flex: 1 1 calc(30% - 20px);
+  max-width: calc(25% - 20px);
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.063);
+  border-radius: 5px;
+
+  .taskTopic {
+    background-color: grey;
+    padding: 7px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  .statusDetail {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 60px;
+  }
+  .statusMark {
+    /* border:1px solid red; */
+    color: green;
+    font-size: 12px;
+    height: 17px;
+    width: 17px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.249);
+    border-radius: 50%;
+  }
+  .btnContainer {
+    /* border:1px solid grey;  */
+    /* width: 100px; */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    button {
+      padding: 5px 20px;
+      outline: none;
+      background: none;
+      border: none;
+      background-color: #3498dbac;
+      border-radius: 5px;
+    }
+
+    .edit{
+      background-color: rgba(0, 128, 0, 0.671);
+    }
+    .delete{
+      background-color: rgba(255, 0, 0, 0.599);
+    }
+  }
+}
+
+/* .analysis container */
+
+.analyticsContainer {
+  padding-top: 70px;
+  height: 100vh;
+  width: 100vw-;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .analytics {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid green; */
+
+    h1 {
+      height: 50px;
+      width: 100%;
+      /* border-bottom: 1px solid rgba(128, 128, 128, 0.443); */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter {
+      height: 70px;
+      width: fit-content;
+      /* border: 1px solid gray; */
+      border-bottom-right-radius: 40px;
+      border-top-right-radius: 40px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(#3498db, #3498db90, #3498db96);
+
+      p {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .searchIcon {
+      /* padding: 10px; */
+      height: 40px;
+      width: 40px;
+      font-size: 15px;
+      border-radius: 50%;
+      background-color: rgba(128, 128, 128, 0.563);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+  .taskDivider {
+    margin-top: 20px;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    .dividerHead {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      p {
+        height: 100%;
+        width: 130px;
+        /* border: 1px solid rgba(51, 49, 49, 0.243); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        &:hover{
+          background-color: rgba(128, 128, 128, 0.111);
+        }
+      }
+    }
+
+    .displayItems {
+      width: 100%;
+      height: 60vh;
+      border: 1px solid rgba(128, 128, 128, 0.313);
+
+      .notFound {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        text-shadow: 2px 2px 4px;
+        color: red;
+  
+      }
+    }
+    .active {
+      background-color: rgba(71, 70, 70, 0.457);
+    }
+  }
+}
+
+.piChart {
+  height: 400px;
+  width: 100vw-;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart {
+  height: fit-content;
+  width: 100vw-;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .chartHead {
+    float: left;
+    height: 70px;
+    width: 100%;
+    /* padding-left:20px; */
+  }
+  h1 {
+    height: 100%;
+    width: 220px;
+    font-size: 22px;
+    /* border: 1px solid gray; */
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#3498db, #3498db90, #3498db96);
+    box-shadow: 2px 2px 4px;
+  }
+
+  .numericAnalysis {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.076);
+    border-radius: 10px;
+    p {
+      padding: 0px 10px;
+      letter-spacing: 1px;
+    }
+  }
+}
