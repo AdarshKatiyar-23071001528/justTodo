@@ -5,7 +5,7 @@ const Login = () => {
         <div className='loginContainer'>
             Comming Soon......
         </div>
+
     );
 }
-
 export default Login;
